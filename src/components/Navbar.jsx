@@ -7,7 +7,8 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/cars")
+        // axios.get("http://localhost:5000/api/cars")
+        api.get("/api/cars") //updated URL to fetch data from  remote server backend instead of local host
             .then(res => {
                 const unique = [...new Set(res.data.map(car => car.brand))];
                 setBrands(unique);

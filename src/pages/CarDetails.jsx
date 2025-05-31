@@ -7,7 +7,9 @@ const CarDetails = () => {
     const [car, setCar] = useState(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/cars/${id}`)
+        // axios.get(`http://localhost:5000/api/cars/${id}`)
+        api.get(`api/cars/${id}`)
+
             .then(res => setCar(res.data))
             .catch(err => console.error("Error loading car details", err));
     }, [id]);
@@ -16,7 +18,8 @@ const CarDetails = () => {
 
     return (
         <div className="max-w-3xl mx-auto mt-10 p-4 bg-white rounded shadow">
-            <img src={`http://localhost:5000${car.image}`} alt={car.model} className="w-full h-64 object-contain rounded" />
+            {/* <img src={`http://localhost:5000${car.image}`} alt={car.model} className="w-full h-64 object-contain rounded" /> */}
+            <img src={`${BACKEND}${car.image}`} alt={car.model} className="w-full h-64 object-contain rounded" />
             <h2 className="text-2xl font-bold mt-4">{car.model}</h2>
             <p className="text-gray-600">Brand: {car.brand}</p>
             <p className="text-gray-600">Variant: {car.variant}</p>

@@ -33,7 +33,7 @@
 // .env file like VITE_API_BASE_URL=https://pakcar-backend.onrender.com and set enviroment veriable on vercel
 
 import axios from "axios";
-
+export const BACKEND = import.meta.env.VITE_API_BASE_URL; // <= add this line
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL, // ✅ Uses environment variable
 });

@@ -8,7 +8,8 @@ const BrandPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/cars")
+    // axios.get("http://localhost:5000/api/cars")
+    api.get("/api/cars")
       .then((res) => {
         setAllCars(res.data);
         setLoading(false);
@@ -35,7 +36,8 @@ const BrandPage = () => {
           {brandCars.map((car) => (
             <div key={car._id} className="bg-white p-4 rounded shadow">
               <img
-                src={`http://localhost:5000${car.image}`}
+                // src={`http://localhost:5000${car.image}`}
+                src={`${BACKEND}${car.image}`}
                 alt={car.model}
                 className="w-full h-48 object-cover rounded"
               />
