@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 
+import api, { BACKEND } from "../Util/api";
 const Navbar = () => {
     const [brands, setBrands] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        // axios.get("http://localhost:5000/api/cars")
+
         api.get("/api/cars") //updated URL to fetch data from  remote server backend instead of local host
             .then(res => {
                 const unique = [...new Set(res.data.map(car => car.brand))];

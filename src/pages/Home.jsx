@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api, { BACKEND } from "../Util/api";    // ✅ use shared api / URL
 
 const Home = () => {
     const [cars, setCars] = useState([]);
@@ -9,7 +10,7 @@ const Home = () => {
 
     const navigate = useNavigate();
     useEffect(() => {
-        axios.get("http://localhost:5000/api/cars").then((res) => {
+        api.get("/api/cars").then((res) => {
             const popularCars = res.data.filter((car) => car.popular);
             setCars(popularCars);
         });
