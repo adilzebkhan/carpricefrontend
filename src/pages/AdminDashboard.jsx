@@ -66,6 +66,7 @@ const AdminDashboard = () => {
             fetchCars();
         } catch (err) {
             console.error("Failed to add car", err);
+            alert("Image upload failed. Please check your internet connection or try a smaller file.");
         }
     };
 
@@ -77,7 +78,7 @@ const AdminDashboard = () => {
                     <td className="border px-2 py-1">
                         {/* image path now uses BACKEND not localhost */}
                         <img
-                            src={`${BACKEND}${car.image}`}
+                            src={car.image}
                             alt={car.model}
                             className="w-16 h-10 object-cover"
                         />

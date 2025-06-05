@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../Util/api.js';
+
+import api, { BACKEND } from "../Util/api";    // ✅ use shared api / URL
 
 const Login = () => {
     const [form, setForm] = useState({ username: '', password: '' });
