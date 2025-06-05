@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState } from "react";
 import api, { BACKEND } from "../Util/api";    // ✅ use shared api / URL
-
+import { BACKEND } from "../Util/api";
 const AdminDashboard = () => {
     const [cars, setCars] = useState([]);
     const [formData, setFormData] = useState({
@@ -72,6 +72,7 @@ const AdminDashboard = () => {
 
     return (
         <div className="p-6 max-w-4xl mx-auto">
+            <h1> Admin Dashboard to Add / delete Cars</h1>
             {/* … same JSX … */}
             {cars.map((car) => (
                 <tr key={car._id}>
