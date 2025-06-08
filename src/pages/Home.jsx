@@ -66,7 +66,7 @@ const Home = () => {
                     .map(car => (
                         <div key={car._id} className="bg-white shadow-lg rounded-lg overflow-hidden">
                             <img
-                                src={`http://localhost:5000${car.image}`}
+                                src={car.image}
                                 alt={car.model}
                                 className="w-full h-48 object-cover"
                             />
