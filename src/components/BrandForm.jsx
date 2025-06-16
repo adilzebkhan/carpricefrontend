@@ -9,8 +9,8 @@ const BrandForm = ({ editingBrand, setEditingBrand, refresh }) => {
         e.preventDefault();
 
         const formData = new FormData();
-        formData.append("name", brandName);
-        formData.append("logo", brandLogo);
+        formData.append("brandName", brandName);
+        formData.append("brandLogo", brandLogo);
 
         try {
             await api.post("/api/brands", formData, {
@@ -19,6 +19,7 @@ const BrandForm = ({ editingBrand, setEditingBrand, refresh }) => {
 
             setBrandName("");
             setBrandLogo(null);
+            fileInputRef.current.value = ""; // 👉 Reset the file input
             refresh();
         } catch (err) {
             console.error("Error uploading brand:", err);

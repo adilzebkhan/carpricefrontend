@@ -16,9 +16,9 @@ const BrandTable = ({ brands, onEdit, onDelete }) => {
                     {brands.map((brand) => (
                         <tr key={brand._id} className="border-t">
                             <td className="p-2 border">
-                                <img src={brand.logo} alt={brand.name} className="h-10" />
+                                <img src={brand.brandLogo} alt={brand.brandName} className="h-10" />
                             </td>
-                            <td className="p-2 border">{brand.name}</td>
+                            <td className="p-2 border">{brand.brandName}</td>
                             <td className="p-2 border space-x-2">
                                 <button
                                     onClick={() => onEdit(brand)}
